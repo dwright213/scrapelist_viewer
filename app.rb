@@ -14,7 +14,7 @@ get "/delete_all" do
 end
 
 get "/scrape" do
-  system('ruby scrape.rb')
+  CarAd.scrape()
   redirect "/"
 end
 
