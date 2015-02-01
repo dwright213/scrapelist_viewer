@@ -1,1 +1,17 @@
-<h1>Hello</h1>
+No more fronting on your presskit
+</small>
+</h3>
+</div>
+<br>
+
+<a href="/delete_all">Clear out the DB!</a>
+<br>
+
+<a href="/scrape">Scrape up some new ads</a>
+<br>
+
+<ul class="list-unstyled">
+  <% @carads.each() do |carad| %>
+    <li><a alt="delete" href="/bands/delete/<%= carad.id() %>">&#215;</a><a href="/carad/<%= carad.id() %>">&nbsp;<%= carad.description() %></a></li>
+  <% end %>
+</ul>

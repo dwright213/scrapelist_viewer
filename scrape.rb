@@ -12,7 +12,7 @@ ActiveRecord::Base.establish_connection(
 
 all_postings = Array.new()
 
-(1..2).each do |i|
+(1..3).each do |i|
   doc = Nokogiri::HTML(open("http://portland.craigslist.org/search/cto?s=#{i}00&"))
   content = doc.xpath("//div[contains(@class,'content')]")
   posts = content.xpath("//span[contains(@class,'txt')]")
@@ -29,7 +29,4 @@ all_postings = Array.new()
       CarAd.create(:price => price, :city => city, :description => description, :date => date)
     end
   end
-
-  puts all_postings.count()
-
 end
