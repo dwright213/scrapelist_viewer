@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  database: scrape
+  template: template0
+
+test:
+  adapter: postgresql
+  database: scrape_test
+  template: template0
