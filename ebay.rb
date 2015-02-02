@@ -2,7 +2,7 @@ require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
 require 'active_record'
-require 'ear_ad'
+require './lib/ear_ad'
 require 'pg'
 require 'pry'
 
@@ -27,9 +27,9 @@ database: 'scrape'
     end
     description = description.gsub(/Click this link to access\s/, "")
     price = post.xpath("ul/li/span[contains(@class, 'bold bidsold')]").inner_text
-    price = price.match(/\$\d+.\d{3}/)
-    price = price.to_s.gsub(/\$/, "")
+    #price = price.match(/\$\d+.\d{3}/)
+    price = price.to_s.gsub(/\$|\,|\.\d{2}/, "")
     bids = post.xpath("ul/li[contains(@class, 'lvformat')]/span").inner_text
-    ear_ad = EarAd.create({:description => description, :price => price, :bids => bids})
+    #ear_ad = EarAd.create({:description => description, :price => price, :bids => bids})
   end
 end
