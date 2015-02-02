@@ -1,5 +1,5 @@
 class CarAd < ActiveRecord::Base
-
+belongs_to :city
 require 'open-uri'
 
   define_singleton_method(:scrape) do
@@ -20,7 +20,7 @@ require 'open-uri'
             clid = post.xpath("span/a/@data-id").text
 
             #breakout of the main paging loop if we find that our postings are either older than 24 hours or already in the db, by craigslist id.
-            if (rightnow - post_date) > 86400
+            if (rightnow - post_date) > 3600
               olderads = true
               break
             # elsif CarAd.find(:clid => clid).count >= 1
@@ -32,7 +32,7 @@ require 'open-uri'
             if price > 100 && price < 3000000
               description = post.xpath("span/a").inner_text
               # city = post.xpath("span").inner_text.slice!(/\([a-zA-Z]+\)/) OLD
-              CarAd.create(:price => price, :city => url_city.id, :description => description, :date => post_date, :clid => clid)
+              CarAd.create(:price => price, :city_id => url_city.id, :description => description, :date => post_date, :clid => clid)
             end
           end
         end
