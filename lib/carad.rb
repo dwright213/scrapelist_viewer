@@ -26,7 +26,7 @@ require 'open-uri'
             description = post.xpath("span/a").inner_text
             city = post.xpath("span").inner_text.slice!(/\([a-zA-Z]+\)/)
 
-            CarAd.create(:price => price, :city => city, :description => description, :date => post_date)
+            CarAd.create(:price => price, :city => city, :description => description, :date => post_date, :post_id => post_id)
           end
         end
       end
