@@ -8,5 +8,8 @@ RSpec.configure do |config|
     CarAd.all().each() do |car_ad|
       car_ad.destroy()
     end
+    City.all.each do |city|
+      city.destroy
+    end
   end
 end
