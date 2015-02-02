@@ -4,7 +4,6 @@ Dir[File.dirname(__FILE__) + "/lib/*.rb"].each {|file| require file}
 also_reload "/lib/**/*.rb"
 
 get("/") do
-  City.populate
   @carads = CarAd.all()
   if @carads.any?
     @count = CarAd.count()
