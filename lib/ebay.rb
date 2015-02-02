@@ -5,6 +5,10 @@ require 'active_record'
 require 'pg'
 require 'pry'
 
+ActiveRecord::Base.establish_connection(
+adapter:  'postgresql', # or 'postgresql' or 'sqlite3'
+database: 'scrape'
+)
 
 @posts = Array.new
 @content = Array.new
