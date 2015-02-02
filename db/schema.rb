@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150202053329) do
+ActiveRecord::Schema.define(version: 20150202200012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 20150202053329) do
   create_table "car_ads", force: :cascade do |t|
     t.integer  "price"
     t.string   "description"
-    t.string   "city"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "date"
     t.string   "clid"
+    t.integer  "city_id"
   end
 
   create_table "cities", force: :cascade do |t|
