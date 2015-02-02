@@ -5,6 +5,11 @@ also_reload "/lib/**/*.rb"
 
 get("/") do
   @carads = CarAd.all()
+  if @carads.any?
+    @count = CarAd.count()
+  else
+    @count = 1
+  end
   erb(:index)
 end
 

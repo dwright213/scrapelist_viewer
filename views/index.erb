@@ -9,6 +9,12 @@
   <br>
   <a href="/scrape">Scrape up some new ads</a>
 </p>
+<% total = 0 %>
+<% @carads.each() do |carad| %>
+  <% total += carad.price() %>
+<% end %>
+and your average is: $<%= total / @count %>!
+
 <ul class="list-unstyled">
   <% @carads.each() do |carad| %>
     <li><a alt="delete" href="/bands/delete/<%= carad.id() %>">&#215;</a><a href="/carad/<%= carad.id() %>"> | <%= carad.price() %> | <%= carad.date() %> | <%= carad.city() %> | <%= carad.description() %> | </a></li>
