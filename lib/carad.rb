@@ -5,7 +5,6 @@ require 'open-uri'
   define_singleton_method(:scrape) do
     rightnow = Time.new
     olderads = false
-    # City.populate
     cities = City.all
     #cycle through the first however many pages of craigslist, breaking out of this loop if we find that our ads are old or redundant.
     cities.each do |url_city|
