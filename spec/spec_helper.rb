@@ -5,8 +5,8 @@ Dir[File.dirname(__FILE__) + '/../lib/*.rb'].each {|file| require file}
 
 RSpec.configure do |config|
   config.after(:each) do
-    CarAd.all().each() do |survey|
-      survey.destroy()
+    CarAd.all().each() do |car_ad|
+      car_ad.destroy()
     end
   end
 end
