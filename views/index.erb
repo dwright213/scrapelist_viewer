@@ -17,6 +17,6 @@ and your average is: $<%= total / @count %>!
 
 <ul class="list-unstyled">
   <% @carads.each() do |carad| %>
-    <li><a alt="delete" href="/carad/delete/<%= carad.id() %>">&#215;</a><a href="/carad/<%= carad.id() %>"> | <%= carad.post_id() %> | <%= carad.date() %> | <%= carad.price() %> | <%= carad.city() %> | <%= carad.description() %> | </a></li>
+    <li><a alt="delete" href="/carad/delete/<%= carad.id() %>">&#215;</a><a href="/carad/<%= carad.id() %>"> | <%= carad.clid() %> | <%= carad.date() %> | <%= carad.price() %> | <%= carad.city() %> | <%= carad.description() %> | </a></li>
   <% end %>
 </ul>

@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20150202053329) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "date"
-    t.string   "post_id"
+    t.string   "clid"
   end
 
   create_table "cities", force: :cascade do |t|

@@ -11,6 +11,7 @@ get("/") do
     @count = 1
   end
   erb(:index)
+  #binding.pry
 end
 
 get "/delete_all" do
