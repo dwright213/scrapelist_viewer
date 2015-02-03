@@ -18,5 +18,23 @@ class City < ActiveRecord::Base
 
   def self.generate_tsv
     tsv = File.new("./test.tsv", "w+")
+    output = ""
+
+    output.concat("date\t")
+
+    City.all.each do |city|
+      output.concat("#{city.name}\t")
+    end
+
+    output.concat("\n")
+
+    7.times() do |counter|
+      output.concat("2011100#{counter}\t")
+      City.all.each() do |city|
+        output.concat("#{city.average_price}\t")
+      end
+    output.concat("\n")
+  end
+    IO.write(tsv, output)
   end
 end
