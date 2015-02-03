@@ -33,3 +33,7 @@ end
 get "/viz" do
   erb :data_visualization
 end
+
+get "/generate_tsv" do
+  City.generate_tsv
+end

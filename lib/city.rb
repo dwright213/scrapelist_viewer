@@ -15,4 +15,8 @@ class City < ActiveRecord::Base
       city_ave = total/number_of_ads
     end
   end
+
+  def self.generate_tsv
+    tsv = File.new("./test.tsv", "w+")
+  end
 end
