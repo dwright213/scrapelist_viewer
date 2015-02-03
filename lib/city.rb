@@ -17,7 +17,7 @@ class City < ActiveRecord::Base
   end
 
   def self.generate_tsv
-    tsv = File.new("./test.tsv", "w+")
+    tsv = File.new("./public/test.tsv", "w+")
     output = ""
 
     output.concat("date\t")
