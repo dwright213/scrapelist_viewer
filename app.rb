@@ -33,4 +33,7 @@ end
 get "/googlecharts" do
   @cities = City.all()
   erb(:googlecharts)
+
+get "/viz" do
+  erb :data_visualization
 end
