@@ -1,4 +1,5 @@
 require("bundler/setup")
+require("json")
 Bundler.require(:default)
 Dir[File.dirname(__FILE__) + "/lib/*.rb"].each {|file| require file}
 also_reload "/lib/**/*.rb"
@@ -12,7 +13,6 @@ get("/") do
     @count = 1
   end
   erb(:index)
-  #binding.pry
 end
 
 get "/delete_all" do
@@ -28,6 +28,11 @@ end
 
 get "/shutdown" do
   exit!
+end
+
+get "/googlecharts" do
+  @cities = City.all()
+  erb(:googlecharts)
 end
 
 get "/viz" do

@@ -7,6 +7,8 @@ gem "rake"
 gem "nokogiri"
 gem "pry"
 gem "pg"
+gem 'googlecharts'
+gem "json"
 
 
 

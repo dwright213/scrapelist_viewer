@@ -1,0 +1,5 @@
+
+<% Gchart.line(:legend => @cities.name) %>
+<% @cities.each do |city| %>
+<%= Gchart.line(:size => '400x400', :theme => :keynote, :title => 'City Averages', :bg => 'efefef', :data => city.average_price) %>
+<% end %>
