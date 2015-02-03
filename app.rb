@@ -1,4 +1,5 @@
 require("bundler/setup")
+require("json")
 Bundler.require(:default)
 Dir[File.dirname(__FILE__) + "/lib/*.rb"].each {|file| require file}
 also_reload "/lib/**/*.rb"
@@ -29,7 +30,7 @@ get "/shutdown" do
   exit!
 end
 
-get "/visualize" do
+get "/googlecharts" do
   @cities = City.all()
-  erb(:data_visualization)
+  erb(:googlecharts)
 end
