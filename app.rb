@@ -42,3 +42,9 @@ end
 get "/generate_tsv" do
   City.generate_tsv
 end
+
+# get "/test_average_price_for_day" do
+#   @example_city = City.find(1)
+#   @example_city.average_price_for_day("2015-02-03")
+#
+# end

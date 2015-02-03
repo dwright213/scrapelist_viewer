@@ -24,7 +24,7 @@ require 'open-uri'
             clid = post.xpath("span/a/@data-id").text
 
             #breakout of the main paging loop if we find that our postings are either older than 24 hours or already in the db, by craigslist id.
-            if (rightnow - post_date) > 3600
+            if (rightnow - post_date) > (86400 * 10)
               olderads = true
               break
             # elsif CarAd.find(:clid => clid).count >= 1

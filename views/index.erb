@@ -12,7 +12,10 @@
   <a href="/googlecharts">Google Charts Visualization</a>
   <br>
   <a href="/viz">Visualize!</a>
-
+  <br>
+  <a href="/test_average_price_for_day">Test Average Price for Day</a>
+  <br>
+  <a href="/generate_tsv">Generate Tsv</a>
 </p>
 <% total = 0 %>
 <% @carads.each() do |carad| %>
@@ -26,5 +29,3 @@ and your average is: $<%= total / @count %>!
     <li><a href="/city/<%= city.id() %>"><%= city.name %> | <%= city.average_price() %> </a></li>
   <% end %>
 </ul>
-
-<a href="/generate_tsv">Generate Tsv</a>

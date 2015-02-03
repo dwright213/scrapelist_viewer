@@ -28,13 +28,35 @@ class City < ActiveRecord::Base
 
     output.concat("\n")
 
-    7.times() do |counter|
-      output.concat("2011100#{counter}\t")
-      City.all.each() do |city|
-        output.concat("#{city.average_price}\t")
-      end
-    output.concat("\n")
-  end
+    jan_25 = Time.at(1422239900)
+
+    days_of_data = []
+
+    days_of_data.push(jan_25)
+
+    until (jan_25.to_s[0...10] == Time.now.to_s[0...10]) do
+      jan_25 += 86400
+      days_of_data.push(jan_25)
+    end
+
+    days_of_data.each do |day|
+      output.concat("#{day.to_s[0...10].gsub("-", "")}\t")
+        City.all.each() do |city|
+          output.concat("#{city.average_price_for_day(day.to_s[0...10])}\t")
+        end
+      output.concat("\n")
+    end
     IO.write(tsv, output)
+  end
+
+  def average_price_for_day(date)
+    sum = 0
+    count = self.car_ads.count
+    self.car_ads.each do |ad|
+      if ad.date[0...10].eql?(date)
+        sum += ad.price
+      end
+    end
+    sum /= count
   end
 end
