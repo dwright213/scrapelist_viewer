@@ -28,15 +28,15 @@ class City < ActiveRecord::Base
 
     output.concat("\n")
 
-    jan_25 = Time.at(1422239900)
+    feb_03 = Time.at(1423009900)
 
     days_of_data = []
 
-    days_of_data.push(jan_25)
+    days_of_data.push(feb_03)
 
-    until (jan_25.to_s[0...10] == Time.now.to_s[0...10]) do
-      jan_25 += 86400
-      days_of_data.push(jan_25)
+    until (feb_03.to_s[0...10] == Time.now.to_s[0...10]) do
+      feb_03 += 86400
+      days_of_data.push(feb_03)
     end
 
     days_of_data.each do |day|
