@@ -9,6 +9,10 @@ class City < ActiveRecord::Base
     car_ads.each do |car_ad|
       total += car_ad.price
     end
-    city_ave = total/number_of_ads
+    if number_of_ads == 0
+      city_ave = 0
+    else
+      city_ave = total/number_of_ads
+    end
   end
 end

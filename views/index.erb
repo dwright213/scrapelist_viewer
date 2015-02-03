@@ -17,8 +17,9 @@
 <% end %>
 and your average is: $<%= total / @count %>!
 
+<h3>City averages:</h3>
 <ul class="list-unstyled">
-  <% @carads.each() do |carad| %>
-    <li><a alt="delete" href="/carad/delete/<%= carad.id() %>">&#215;</a><a href="/carad/<%= carad.id() %>"> | <%= carad.clid() %> | <%= carad.date() %> | <%= carad.price() %> | <%= carad.city_id() %> | <%= carad.description() %> | </a></li>
+  <% @cities.each() do |city| %>
+    <li><a href="/city/<%= city.id() %>"><%= city.name %> | <%= city.average_price() %> </a></li>
   <% end %>
 </ul>
