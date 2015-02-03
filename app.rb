@@ -11,7 +11,6 @@ get("/") do
     @count = 1
   end
   erb(:index)
-  #binding.pry
 end
 
 get "/delete_all" do
@@ -27,4 +26,9 @@ end
 
 get "/shutdown" do
   exit!
+end
+
+get "/visualize" do
+  @cities = City.all()
+  erb(:data_visualization)
 end

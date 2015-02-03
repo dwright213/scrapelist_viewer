@@ -7,6 +7,8 @@ gem "rake"
 gem "nokogiri"
 gem "pry"
 gem "pg"
+gem "chartkick"
+gem "groupdate"
 
 
 
