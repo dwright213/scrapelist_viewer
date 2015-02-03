@@ -15,6 +15,17 @@ get("/") do
   erb(:index)
 end
 
+get("/cssviz") do
+  @cities = City.all
+  @carads = CarAd.all()
+  if @carads.any?
+    @count = CarAd.count()
+  else
+    @count = 1
+  end
+  erb(:cssviz)
+end
+
 get "/delete_all" do
   CarAd.delete_all()
   redirect "/"

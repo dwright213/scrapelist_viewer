@@ -1,0 +1,35 @@
+      Css Visualization!
+    </small>
+  </h3>
+</div>
+<br>
+
+
+<h3>City averages:</h3>
+<div class="container-fluid">
+
+  <ul class="list-unstyled">
+    <% @cities.each() do |city| %>
+      <div class="col-md-12">
+        <%= city.name() %>
+        <div class="chart_bar" style="background-color: #ff0000; width: <%= city.average_price %>px;">
+          &nbsp;$<%= city.average_price() %>
+        </div>
+
+        <div class="chart_bar" style="background-color: #FF99FF; width: <%= city.median_income.to_i/100 %>px;">
+          &nbsp;$<%= city.median_income() %>
+        </div>
+
+        <div class="chart_bar bar_tube">
+          <div class="inner_bar" style="background-color: #66ffff; width: <%= city.poverty %>%; margin: 0px; padding: 0px;">
+           &nbsp;<%= city.poverty() %>%
+          </div>
+
+        </div>
+      </div>
+
+
+    <% end %>
+  </ul>
+
+</div>

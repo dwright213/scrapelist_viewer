@@ -19,3 +19,25 @@ body {
   stroke: steelblue;
   stroke-width: 1.5px;
 }
+
+
+.chart_bar {
+border-radius: 5px;
+height: 20px;
+margin: 10px;
+}
+
+.bar_tube {
+background-color: hsla(226, 0%, 88%, 0.49)
+}
+
+.col_md_12 {
+background-color: hsla(226, 0%, 88%, 0.49);
+}
+
+.inner_bar {
+border-radius: 5px;
+margin: 0px;
+padding: 0px;
+width: 800px;
+}
