@@ -29,3 +29,7 @@ end
 get "/shutdown" do
   exit!
 end
+
+get "/viz" do
+  erb :data_visualization
+end
