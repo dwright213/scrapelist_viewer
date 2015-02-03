@@ -13,11 +13,15 @@ database: 'scrape'
 
 @display = 0
 
-(1..2).each do |page, zip, distance|
+(0..2).each do |page, zip, distance|
   zip = 97209
   distance = 15
   @display = @display + 200
-  doc = Nokogiri::HTML(open("http://www.ebay.com/sch/Cars-Trucks-/6001/i.html?LH_Distance=#{zip}..#{@display}&_from=R40&_nkw=&LH_Sold=1&_udlo=&_udhi=&LH_ItemCondition=4&_samilow=&_samihi=&_sadis=#{distance}&_stpos=#{zip}&_sop=12&_dmd=1&LH_Complete=1&_pgn=#{page}&_skc=#{@display}&rt=nc"))
+  if (page == 0)
+    doc = Nokogiri::HTML(open("http://www.ebay.com/sch/Cars-Trucks-/6001/i.html?LH_Distance=#{zip}..#{@display}&_from=R40&_nkw=&LH_Sold=1&_udlo=&_udhi=&LH_ItemCondition=4&_samilow=&_samihi=&_sadis=#{distance}&_stpos=#{zip}&_sop=12&_dmd=1&LH_Complete=1&_pgn=#{page}&_skc=#{@display}&rt=nc"))
+  else
+    doc = Nokogiri::HTML(open("http://www.ebay.com/sch/Cars-Trucks-/6001/i.html?LH_Distance=#{zip}..#{@display}&_from=R40&_nkw=&LH_Sold=1&_udlo=&_udhi=&LH_ItemCondition=4&_samilow=&_samihi=&_sadis=#{distance}&_stpos=#{zip}&_sop=12&_dmd=1&LH_Complete=1&_pgn=#{page}&_skc=#{@display}&rt=nc"))
+  end
   content = doc.xpath("//li[contains(@class, 'sresult lvresult clearfix li')]")
 
   content.each do |post|

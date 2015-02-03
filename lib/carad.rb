@@ -8,8 +8,12 @@ require 'open-uri'
     #cycle through the first however many pages of craigslist, breaking out of this loop if we find that our ads are old or redundant.
     cities.each do |url_city|
       olderads = false
-      (1..100).each do |i|
-        doc = Nokogiri::HTML(open("http://#{url_city.url_name}.craigslist.org/search/cto?s=#{i}00&"))
+      (0..100).each do |i|
+        if(i==0)
+          doc = Nokogiri::HTML(open("http://#{url_city.url_name}.craigslist.org/search/cto"))
+        else
+          doc = Nokogiri::HTML(open("http://#{url_city.url_name}.craigslist.org/search/cto?s=#{i}00&"))
+        end
         content = doc.xpath("//div[contains(@class,'content')]")
         posts = content.xpath("//span[contains(@class,'txt')]")
 
