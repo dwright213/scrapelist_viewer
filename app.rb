@@ -52,6 +52,7 @@ end
 
 get "/generate_tsv" do
   City.generate_tsv
+  redirect "/"
 end
 
 # get "/test_average_price_for_day" do
