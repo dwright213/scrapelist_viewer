@@ -40,7 +40,7 @@ https://github.com/lukechinworth
 
 ##Copyright
 ---------------------
-2015 Dan Wright
+2015  
 
 
 ##License
